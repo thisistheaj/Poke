@@ -21,7 +21,20 @@ export class HomePage {
     this.app.getRootNav().setRoot(EntryPage);
   }
 
-  public seeUser(uid) {
-    console.log('Saw: ' + uid);
+  public seeUser(seenUser) {
+    let seeingUser = {
+      email: this.authPvdr.afAuth.auth.currentUser.email,
+      uid: this.authPvdr.getUserId()
+    };
+    console.log('User, ' +  seeingUser.email + ' looked at ' + seenUser.email);
+    this.sendLook(seeingUser, seenUser)
+  }
+
+  public sendLook(seeingUser, seenUser) {
+    this.afdb.list('/glances').push({
+      seeingUser: seeingUser,
+      seenUser: seenUser,
+      timeStamp: new Date().toISOString()
+    })
   }
 }
