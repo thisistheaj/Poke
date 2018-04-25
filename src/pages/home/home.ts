@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {App, NavController} from 'ionic-angular';
 import {AuthProvider} from "../../providers/auth/auth";
 import {EntryPage} from "../entry/entry";
+import {AngularFireDatabase} from "angularfire2/database";
 
 @Component({
   selector: 'page-home',
@@ -9,8 +10,10 @@ import {EntryPage} from "../entry/entry";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public authPvdr: AuthProvider, public app: App) {
+  public users;
 
+  constructor(public navCtrl: NavController, public authPvdr: AuthProvider, public app: App, public afdb: AngularFireDatabase) {
+    this.users = this.afdb.list('/users').valueChanges();
   }
 
   public logOut() {
@@ -18,4 +21,7 @@ export class HomePage {
     this.app.getRootNav().setRoot(EntryPage);
   }
 
+  public seeUser(uid) {
+    console.log('Saw: ' + uid);
+  }
 }

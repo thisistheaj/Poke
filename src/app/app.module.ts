@@ -16,6 +16,7 @@ import {EntryPage} from "../pages/entry/entry";
 import { AuthProvider } from '../providers/auth/auth';
 import {AngularFireModule} from "angularfire2";
 import {AngularFireAuth} from "angularfire2/auth";
+import {AngularFireDatabase} from "angularfire2/database";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {AngularFireAuth} from "angularfire2/auth";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    AngularFireAuth
+    AngularFireAuth,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}
