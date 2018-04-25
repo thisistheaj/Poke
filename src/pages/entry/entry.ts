@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LogInPage} from "../log-in/log-in";
 import {SignUpPage} from "../sign-up/sign-up";
+import {AuthProvider} from "../../providers/auth/auth";
 
 /**
  * Generated class for the EntryPage page.
@@ -17,11 +18,8 @@ import {SignUpPage} from "../sign-up/sign-up";
 })
 export class EntryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authPvdr: AuthProvider) {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EntryPage');
   }
 
   public goToLogIn() {
