@@ -18,3 +18,8 @@ export let createProfile = functions.auth.user().onCreate(user => {
   }).then(data => console.log(data), err => console.error(err))
     .catch(err => console.error(err));
 });
+
+export let sendGlance = functions.database.ref('/glances/{glanceId}').onCreate(snap => {
+  console.log(snap.data.val())
+  // console.log(snap.data.val().seeingUser)
+})
