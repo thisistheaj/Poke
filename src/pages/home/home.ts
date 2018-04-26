@@ -10,10 +10,14 @@ import {AngularFireDatabase} from "angularfire2/database";
 })
 export class HomePage {
 
+  public user;
   public users;
 
   constructor(public navCtrl: NavController, public authPvdr: AuthProvider, public app: App, public afdb: AngularFireDatabase) {
     this.users = this.afdb.list('/users').valueChanges();
+    this.afdb.object('/users/' + this.authPvdr.getUserId()).valueChanges().subscribe(snap => {
+      this.user = snap;
+    });
   }
 
   public logOut() {
@@ -22,12 +26,7 @@ export class HomePage {
   }
 
   public seeUser(seenUser) {
-    let seeingUser = {
-      email: this.authPvdr.afAuth.auth.currentUser.email,
-      uid: this.authPvdr.getUserId()
-    };
-    console.log('User, ' +  seeingUser.email + ' looked at ' + seenUser.email);
-    this.sendLook(seeingUser, seenUser)
+    this.sendLook(this.user, seenUser);
   }
 
   public sendLook(seeingUser, seenUser) {
@@ -35,6 +34,6 @@ export class HomePage {
       seeingUser: seeingUser,
       seenUser: seenUser,
       timeStamp: new Date().toISOString()
-    })
+    });
   }
 }
