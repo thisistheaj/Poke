@@ -17,6 +17,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import {AngularFireModule} from "angularfire2";
 import {AngularFireAuth} from "angularfire2/auth";
 import {AngularFireDatabase} from "angularfire2/database";
+import {FCM} from "@ionic-native/fcm";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {AngularFireDatabase} from "angularfire2/database";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     AngularFireAuth,
-    AngularFireDatabase
+    AngularFireDatabase,
+    FCM
   ]
 })
 export class AppModule {}

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "469349041880",
+    "firebase_url": "https://newagent-f3b16.firebaseio.com",
+    "project_id": "newagent-f3b16",
+    "storage_bucket": "newagent-f3b16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469349041880:android:0c65114e08098b13",
+        "android_client_info": {
+          "package_name": "com.ajbeckner.pokeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469349041880-8kp3kvg9nghot0tan95dtcr2352bg4fn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1nEXpcNiQWqvIoFYTRcgeUbr4kLUYcIg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
